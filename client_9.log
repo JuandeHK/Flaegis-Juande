@@ -1,0 +1,50 @@
+2025-06-18 13:17:00,411 - client_process_9 - INFO - Cliente 9: Iniciando proceso
+2025-06-18 13:17:00,411 - client_process_9 - INFO - Inicializando DataLoader con config: {'base_dir': '/home/juand/TFG/FLAegis-Federated-Learning-Approach-for-Enhanced-Guarding-against-Intrusion-and-Security-threats', 'dataset_type': 'pleidata', 'target_col': 'dif_cons_real', 'feature_cols': ['dif_cons_real', 'dif_cons_smooth', 'V2', 'V4', 'V12', 'V26', 'Hour_1', 'Hour_2', 'Hour_3', 'Season_1', 'Season_2', 'Season_3', 'Season_4', 'tmed', 'hrmed', 'radmed', 'vvmed', 'dvmed', 'prec', 'dewpt', 'dpv'], 'window_size': 12, 'separator': ';', 'type': 'convlstm'}
+2025-06-18 13:17:00,411 - client_process_9 - INFO - Preparando constructor de modelo tipo: convlstm
+2025-06-18 13:17:00,411 - client_process_9 - INFO - _buildModel: tipo='convlstm', config={'type': 'convlstm', 'learning_rate': 0.0003, 'batch_size': 32, 'convlstm_filters_1': 64, 'convlstm_filters_2': 32, 'dense_units_1': 64, 'dense_units_2': 32, 'dropout_rate': 0.1}
+2025-06-18 13:17:00,412 - client_process_9 - INFO - === INICIANDO CLIENTE ===
+2025-06-18 13:17:00,412 - client_process_9 - INFO - Cargando datos...
+2025-06-18 13:17:00,412 - client_process_9 - INFO - Iniciando carga para cliente 9 con dataset_type: 'pleidata'
+2025-06-18 13:17:00,412 - client_process_9 - INFO - Cargando datos desde: /home/juand/TFG/FLAegis-Federated-Learning-Approach-for-Enhanced-Guarding-against-Intrusion-and-Security-threats/data/pleidata/data_party9.csv
+2025-06-18 13:17:00,438 - client_process_9 - INFO - DataFrame original shape: (77, 26)
+2025-06-18 13:17:00,439 - client_process_9 - INFO - Columnas disponibles: ['Date', 'dif_cons_real', 'cons_total', 'dif_cons_smooth', 'V2', 'V4', 'V12', 'V26', 'V5_0', 'V5_1', 'V5_2', 'Hour_1', 'Hour_2', 'Hour_3', 'Season_1', 'Season_2', 'Season_3', 'Season_4', 'tmed', 'hrmed', 'radmed', 'vvmed', 'dvmed', 'prec', 'dewpt', 'dpv']
+2025-06-18 13:17:00,445 - client_process_9 - INFO - Datos después de limpiar NaN y valores no numéricos: (77, 26)
+2025-06-18 13:17:00,456 - client_process_9 - INFO - Datos cargados - Train: (52, 12, 1, 21, 1), Test: (13, 12, 1, 21, 1)
+2025-06-18 13:17:00,458 - client_process_9 - INFO - Construyendo modelo...
+2025-06-18 13:17:01,495 - client_process_9 - WARNING - DEPRECATED FEATURE: flwr.client.start_numpy_client() is deprecated. 
+	Instead, use `flwr.client.start_client()` by ensuring you first call the `.to_client()` method as shown below: 
+	flwr.client.start_client(
+		server_address='<IP>:<PORT>',
+		client=FlowerClient().to_client(), # <-- where FlowerClient is of type flwr.client.NumPyClient object
+	)
+	Using `start_numpy_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+2025-06-18 13:17:01,495 - client_process_9 - WARNING - DEPRECATED FEATURE: flwr.client.start_client() is deprecated.
+	Instead, use the `flower-supernode` CLI command to start a SuperNode as shown below:
+
+		$ flower-supernode --insecure --superlink='<IP>:<PORT>'
+
+	To view all available options, run:
+
+		$ flower-supernode --help
+
+	Using `start_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+2025-06-18 13:17:01,510 - client_process_9 - DEBUG - Opened insecure gRPC connection (no certificates were passed)
+2025-06-18 13:17:01,518 - client_process_9 - DEBUG - ChannelConnectivity.IDLE
+2025-06-18 13:17:01,535 - client_process_9 - DEBUG - ChannelConnectivity.CONNECTING
+2025-06-18 13:17:01,538 - client_process_9 - DEBUG - ChannelConnectivity.READY
+2025-06-18 13:17:01,614 - client_process_9 - INFO - 
+2025-06-18 13:17:01,614 - client_process_9 - INFO - Received: train message 219c6a97-79f2-46fa-99d4-3b45f7daf3c5
+2025-06-18 13:17:01,617 - client_process_9 - INFO - CLIENT 9: === FIT_START ===
+2025-06-18 13:17:01,618 - client_process_9 - INFO - Recibida orden de entrenamiento para la ronda 1
+2025-06-18 13:17:01,618 - client_process_9 - INFO - CLIENT 9: Estableciendo pesos del modelo global...
+2025-06-18 13:17:01,635 - client_process_9 - INFO - CLIENT 9: Pesos del modelo establecidos.
+2025-06-18 13:17:01,637 - client_process_9 - INFO - CLIENT 9: Forma de los datos de entrenamiento: X=(52, 12, 1, 21, 1), y=(52,)
+2025-06-18 13:17:01,637 - client_process_9 - INFO - CLIENT 9: Preparado para llamar a model.fit() con epochs=10 y batch_size=32

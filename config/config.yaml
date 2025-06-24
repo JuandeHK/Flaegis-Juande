@@ -1,0 +1,91 @@
+data:
+  base_dir: "/home/juand/TFG/FLAegis-Federated-Learning-Approach-for-Enhanced-Guarding-against-Intrusion-and-Security-threats"
+  dataset_type: "pleidata"  
+
+  target_col: 'dif_cons_real'
+  feature_cols:
+    - 'dif_cons_real'
+    - 'dif_cons_smooth'
+    - 'V2'
+    - 'V4'
+    - 'V12'
+    - 'V26'
+    - 'Hour_1'
+    - 'Hour_2'
+    - 'Hour_3'
+    - 'Season_1'
+    - 'Season_2'
+    - 'Season_3'
+    - 'Season_4'
+    - 'tmed'
+    - 'hrmed'
+    - 'radmed'
+    - 'vvmed'
+    - 'dvmed'
+    - 'prec'
+    - 'dewpt'
+    - 'dpv'
+  #window_size: 12
+  window_size: 24
+  separator: ';'
+
+training:
+
+  rounds: 8
+  clients: 5
+  min_fit_clients: 5
+  min_eval_clients: 5
+  #local_epochs: 10
+  local_epochs: 1
+
+evaluation:
+  batch_size: 12
+  local_epochs: 1
+
+model:
+  type: "convlstm" #"transformer" #"convlstm" 
+  #learning_rate: 0.0003
+  learning_rate: 0.0001
+  batch_size: 12
+  convlstm_filters_1: 32
+  convlstm_filters_2: 16
+  dense_units_1: 31
+  dense_units_2: 16
+  dropout_rate: 0.25
+
+# CONFIGURACIÓN DE EARLY STOPPING
+  early_stopping_patience: 1
+  early_stopping_monitor: 'val_mae'
+  early_stopping_restore_best_weights: true
+
+server_address: "127.0.0.1:8080"
+
+detection:
+  active: false
+  method: "spectral"
+  threshold: 0.5
+  min_clients_per_cluster: 2
+  max_clusters: 10
+  tolerance: 0.1
+  min_samples_for_detection: 3
+  enable_logging: true
+
+aggregation:
+  strategy: "fedavg"
+
+# aggregation:
+#   #strategy: "weighted_median"
+#   params:
+#     robustness_threshold: 0.1
+
+# Configuración del servidor
+server:
+  host: "0.0.0.0"
+  port: 8080
+  max_workers: 10
+
+# Configuración de logging
+logging:
+  level: "INFO"
+  file: "federated_learning.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

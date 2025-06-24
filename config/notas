@@ -1,0 +1,236 @@
+notas
+FLUJO:
+Selección de Clientes: Al inicio de cada ronda de fit (entrenamiento), el servidor (usando la lógica de tu estrategia en configure_fit) decide qué clientes van a participar en esa ronda (por ejemplo, 5 de 10, o los 10).
+Envío del Modelo: El servidor envía el modelo global actual a los clientes seleccionados.
+Entrenamiento Local: TODOS los clientes seleccionados (incluidos los maliciosos) reciben el modelo y realizan el entrenamiento local en sus propios datos (client.fit). Aquí es donde el cliente malicioso aplica su ataque (modifica los pesos después de entrenar, etc.).
+Envío de Resultados: Todos los clientes que terminaron su fit (incluidos los maliciosos) envían sus resultados (sus pesos actualizados) de vuelta al servidor.
+Recepción y Detección (¡Aquí ocurre el descarte!):
+El servidor, en la función aggregate_fit, recibe los resultados de todos los clientes que respondieron.
+AHORA es cuando llama a tu función _detect_malicious_clients. Esta función analiza las actualizaciones (o los pesos) que acaba de recibir de todos.
+Basándose en ese análisis, _detect_malicious_clients devuelve una lista de los IDs de los clientes que parecen maliciosos.
+Filtrado: La función aggregate_fit toma esa lista de IDs maliciosos y descarta los resultados (los pesos) enviados por esos clientes.
+Agregación: Finalmente, aggregate_fit llama a _weighted_median (o la función de agregación que sea) SOLAMENTE con los pesos de los clientes que NO fueron descartados (los considerados "buenos").
+Nuevo Modelo Global: El resultado de la agregación se convierte en el nuevo modelo global para la siguiente ronda.
+
+
+
+
+SIN CLIENTES MALICIOSOS, 10 CLIENTES:
+
+INFO :      [SUMMARY]
+INFO :      Run finished 50 round(s) in 405.66s
+INFO :          History (loss, distributed):
+INFO :                  round 1: 3.389927833829975
+INFO :                  round 2: 3.3632927355174274
+INFO :                  round 3: 3.363985873628081
+INFO :                  round 4: 3.3627326032410747
+INFO :                  round 5: 3.3627173513294712
+INFO :                  round 6: 3.36171699145384
+INFO :                  round 7: 2.6482384020259024
+INFO :                  round 8: 1.6221436513298757
+INFO :                  round 9: 1.3992745520172492
+INFO :                  round 10: 1.2535887682526379
+INFO :                  round 11: 1.1176333801868634
+INFO :                  round 12: 0.9978906355406109
+INFO :                  round 13: 0.9047881425955356
+INFO :                  round 14: 0.8308896565264375
+INFO :                  round 15: 0.7744229485189063
+INFO :                  round 16: 0.7292713915046892
+INFO :                  round 17: 0.6974296861814584
+INFO :                  round 18: 0.6787309996110065
+INFO :                  round 19: 0.6549647458390346
+INFO :                  round 20: 0.6417809148870821
+INFO :                  round 21: 0.6216289415131053
+INFO :                  round 22: 0.6215635882778529
+INFO :                  round 23: 0.6053944542078997
+INFO :                  round 24: 0.6016791767859266
+INFO :                  round 25: 0.5897016903327705
+INFO :                  round 26: 0.5784622172393941
+INFO :                  round 27: 0.5772552326040068
+INFO :                  round 28: 0.5687816498471818
+INFO :                  round 29: 0.5621923500930893
+INFO :                  round 30: 0.5581479682995562
+INFO :                  round 31: 0.557418808823655
+INFO :                  round 32: 0.5509706532001978
+INFO :                  round 33: 0.5503796421182461
+INFO :                  round 34: 0.5499825663814338
+INFO :                  round 35: 0.5439215983174912
+INFO :                  round 36: 0.5458439246584208
+INFO :                  round 37: 0.5450127429345197
+INFO :                  round 38: 0.5415616852612148
+INFO :                  round 39: 0.5371594830653686
+INFO :                  round 40: 0.5480073687699643
+INFO :                  round 41: 0.547686227591012
+INFO :                  round 42: 0.5428033072536612
+INFO :                  round 43: 0.5448418421100186
+INFO :                  round 44: 0.5393699864315198
+INFO :                  round 45: 0.5467256112338399
+INFO :                  round 46: 0.5414208589466075
+INFO :                  round 47: 0.5425017153273629
+INFO :                  round 48: 0.5441291078060423
+INFO :                  round 49: 0.5487051364059551
+INFO :                  round 50: 0.5520589124014181
+INFO :          History (metrics, distributed, evaluate):
+INFO :          {'accuracy': [(1, 0.07776653121367559),
+INFO :                        (2, 0.07203103826656515),
+INFO :                        (3, 0.07776653121367559),
+INFO :                        (4, 0.07776653121367559),
+INFO :                        (5, 0.0745614037148946),
+INFO :                        (6, 0.07776653121367559),
+INFO :                        (7, 0.35374493586268985),
+INFO :                        (8, 0.5835020264231081),
+INFO :                        (9, 0.6322537058921639),
+INFO :                        (10, 0.6744264570666871),
+INFO :                        (11, 0.7064777267003349),
+INFO :                        (12, 0.7349865133101158),
+INFO :                        (13, 0.7538798967936905),
+INFO :                        (14, 0.771423746156789),
+INFO :                        (15, 0.7820512747113039),
+INFO :                        (16, 0.7914979801728175),
+INFO :                        (17, 0.8024628942030483),
+INFO :                        (18, 0.80617409017485),
+INFO :                        (19, 0.8122469677455352),
+INFO :                        (20, 0.8171389905004366),
+INFO :                        (21, 0.818151145067453),
+INFO :                        (22, 0.8221997288175118),
+INFO :                        (23, 0.8233805628098779),
+INFO :                        (24, 0.8265856932672734),
+INFO :                        (25, 0.8306342700292707),
+INFO :                        (26, 0.8326585776550889),
+INFO :                        (27, 0.8329959436245614),
+INFO :                        (28, 0.8370445261378842),
+INFO :                        (29, 0.8377192836058768),
+INFO :                        (30, 0.8422739528893781),
+INFO :                        (31, 0.8405870503762312),
+INFO :                        (32, 0.8419365682381528),
+INFO :                        (33, 0.84176787335863),
+INFO :                        (34, 0.8414304932421036),
+INFO :                        (35, 0.8431174217267074),
+INFO :                        (36, 0.845479080591768),
+INFO :                        (37, 0.8456477681514223),
+INFO :                        (38, 0.8471659940143346),
+INFO :                        (39, 0.8471659935115964),
+INFO :                        (40, 0.848515528416344),
+INFO :                        (41, 0.8451416994999295),
+INFO :                        (42, 0.8488529019268901),
+INFO :                        (43, 0.8490215832324807),
+INFO :                        (44, 0.8515519562721574),
+INFO :                        (45, 0.8508771962200904),
+INFO :                        (46, 0.8515519603543918),
+INFO :                        (47, 0.8500337376285662),
+INFO :                        (48, 0.8535762537024443),
+INFO :                        (49, 0.8515519616011826),
+INFO :                        (50, 0.8532388747824349)]} 
+
+
+LOSS BAJA DE 3.37 HASTA 0.55
+PRECISION MEJORA MUCHJO, EMPIEZA BAJA Y TERMINA ALREDEDOR DEL 85%
+
+EL LOSS BAJA DE FORMA RAPIDA ENTRE LA RONDA 7-8 EN ADELANTE SE VE
+ACCURACT SUBE DE MANERA CONSTANTE CRECIMIENTO FUERTE EN LAS PRIMERAS RONDAS Y LUEGO PROGRESIVO.
+
+EJECUCION 10 CLIENTES 2 MALICIOSOS:
+INFO :      [SUMMARY]
+INFO :      Run finished 50 round(s) in 674.70s
+INFO :          History (loss, distributed):
+INFO :                  round 1: 3.496937674986369
+INFO :                  round 2: 3.364260516083187
+INFO :                  round 3: 3.3654240843467367
+INFO :                  round 4: 3.3630124239457277
+INFO :                  round 5: 3.363157934086061
+INFO :                  round 6: 3.363134781929676
+INFO :                  round 7: 3.363125646006445
+INFO :                  round 8: 3.363069259518345
+INFO :                  round 9: 3.363147585860526
+INFO :                  round 10: 3.3630879994889282
+INFO :                  round 11: 3.3629690005224417
+INFO :                  round 12: 3.3629279441008983
+INFO :                  round 13: 3.15815291238531
+INFO :                  round 14: 1.7454313641523873
+INFO :                  round 15: 1.296160862556963
+INFO :                  round 16: 1.1145131270319322
+INFO :                  round 17: 1.0046539917007113
+INFO :                  round 18: 0.9286119431047993
+INFO :                  round 19: 0.8717222260537361
+INFO :                  round 20: 0.8298256102930157
+INFO :                  round 21: 0.7948604360993022
+INFO :                  round 22: 0.7649517335138207
+INFO :                  round 23: 0.7361061482721553
+INFO :                  round 24: 0.7134287451923261
+INFO :                  round 25: 0.695575074166899
+INFO :                  round 26: 0.6813064880171823
+INFO :                  round 27: 0.662581837623013
+INFO :                  round 28: 0.6499405837424082
+INFO :                  round 29: 0.6396524072016125
+INFO :                  round 30: 0.6299258513192861
+INFO :                  round 31: 0.6198634253360225
+INFO :                  round 32: 0.6128784010741283
+INFO :                  round 33: 0.6018516007751269
+INFO :                  round 34: 0.5924677816091601
+INFO :                  round 35: 0.5889550629540271
+INFO :                  round 36: 0.5821752547864815
+INFO :                  round 37: 0.5772471965473625
+INFO :                  round 38: 0.5736222485128105
+INFO :                  round 39: 0.5664872761184557
+INFO :                  round 40: 0.5629918400219336
+INFO :                  round 41: 0.5614272503368383
+INFO :                  round 42: 0.5559481706335686
+INFO :                  round 43: 0.5530038596349222
+INFO :                  round 44: 0.5527212381534352
+INFO :                  round 45: 0.5495762178643929
+INFO :                  round 46: 0.5445474139244945
+INFO :                  round 47: 0.543653642795441
+INFO :                  round 48: 0.539294033640079
+INFO :                  round 49: 0.5380282646134746
+INFO :                  round 50: 0.5348826837175621
+INFO :          History (metrics, distributed, evaluate):
+INFO :          {'accuracy': [(1, 0.07825057093322242),
+INFO :                        (2, 0.07825057093322242),
+INFO :                        (3, 0.07825057093322242),
+INFO :                        (4, 0.07825057093322242),
+INFO :                        (5, 0.07825057093322242),
+INFO :                        (6, 0.07825057093322242),
+INFO :                        (7, 0.07825057093322242),
+INFO :                        (8, 0.07825057093322242),
+INFO :                        (9, 0.07825057093322242),
+INFO :                        (10, 0.07825057093322242),
+INFO :                        (11, 0.07825057093322242),
+INFO :                        (12, 0.07825057093322242),
+INFO :                        (13, 0.2034514843699049),
+INFO :                        (14, 0.5599357004789277),
+INFO :                        (15, 0.6505371795149586),
+INFO :                        (16, 0.7001945621702496),
+INFO :                        (17, 0.7230352870644112),
+INFO :                        (18, 0.7453684100805428),
+INFO :                        (19, 0.7582268796488674),
+INFO :                        (20, 0.7675323501152391),
+INFO :                        (21, 0.7732002339874586),
+INFO :                        (22, 0.7830978864119265),
+INFO :                        (23, 0.7900346849747453),
+INFO :                        (24, 0.7938414697225158),
+INFO :                        (25, 0.800947472756914),
+INFO :                        (26, 0.8034007331006127),
+INFO :                        (27, 0.8081380674433823),
+INFO :                        (28, 0.8114372780203829),
+INFO :                        (29, 0.8155824423048079),
+INFO :                        (30, 0.8193892145477548),
+INFO :                        (31, 0.8202351658802711),
+INFO :                        (32, 0.8240419562400855),
+INFO :                        (33, 0.8270027841390989),
+INFO :                        (34, 0.8278487393995417),
+INFO :                        (35, 0.8289484722180048),
+INFO :                        (36, 0.8308095667186944),
+INFO :                        (37, 0.8319938950616891),
+INFO :                        (38, 0.832586065236006),
+INFO :                        (39, 0.8346163552330388),
+INFO :                        (40, 0.8355468981470334),
+INFO :                        (41, 0.8374925838106931),
+INFO :                        (42, 0.8374925915606584),
+INFO :                        (43, 0.8390999025484096),
+INFO :                        (44, 0.8403688332835043),
+INFO :                        (45, 0.8405380082174804),
+INFO :                        (46, 0.8417223490501718),
+INFO :                        (47, 0.8423145226986111),
+INFO :                        (48, 0.8437526361479007),
+INFO :                        (49, 0.8445139920567308),
+INFO :                        (50, 0.8445985968892884)]}
