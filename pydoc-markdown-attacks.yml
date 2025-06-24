@@ -1,0 +1,25 @@
+# Documentación de estrategias
+loaders:
+  - type: python
+    search_path: ["."]
+    modules:
+      - src.attacks.base_attack
+      - src.attacks.attack_factory
+      - src.attacks.model_poisoning.min_max_attack
+      - src.attacks.model_poisoning.min_sum_attack
+      - src.attacks.model_poisoning.lie_attack
+      - src.attacks.model_poisoning.statopt_attack
+      - src.attacks.data_poisoning.label_flipping
+
+processors:
+  - type: filter
+  - type: smart
+  - type: crossref
+
+renderer:
+  type: markdown
+  descriptive_class_title: true
+  descriptive_module_title: true
+  add_method_class_prefix: true
+  add_member_class_prefix: true
+  filename: docs/attacks_documentation.md

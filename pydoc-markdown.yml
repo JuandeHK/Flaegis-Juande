@@ -1,0 +1,18 @@
+# Configuración para pydoc-markdown
+
+loaders:
+  - type: python
+    search_path: ["src", "."]  # Directorios donde buscar los módulos
+    modules: 
+      - main
+      - src.orchestrator.fl_orchestrator
+      - src.server.server_manager
+      - src.client.client_manager
+
+renderer:
+  type: markdown
+  descriptive_class_title: true
+  descriptive_module_title: true
+  add_method_class_prefix: true
+  add_member_class_prefix: true
+  filename: docs/documentation.md

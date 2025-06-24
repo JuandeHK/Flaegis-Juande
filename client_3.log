@@ -1,0 +1,181 @@
+2025-06-23 17:39:06,048 - client_process_3 - INFO - Cliente 3: Iniciando proceso
+2025-06-23 17:39:06,048 - client_process_3 - INFO - Inicializando DataLoader con config: {'base_dir': '/home/juand/TFG/FLAegis-Federated-Learning-Approach-for-Enhanced-Guarding-against-Intrusion-and-Security-threats', 'dataset_type': 'pleidata', 'target_col': 'dif_cons_real', 'feature_cols': ['dif_cons_real', 'dif_cons_smooth', 'V2', 'V4', 'V12', 'V26', 'Hour_1', 'Hour_2', 'Hour_3', 'Season_1', 'Season_2', 'Season_3', 'Season_4', 'tmed', 'hrmed', 'radmed', 'vvmed', 'dvmed', 'prec', 'dewpt', 'dpv'], 'window_size': 24, 'separator': ';', 'type': 'convlstm'}
+2025-06-23 17:39:06,048 - client_process_3 - INFO - Preparando constructor de modelo tipo: convlstm
+2025-06-23 17:39:06,048 - client_process_3 - INFO - _buildModel: tipo='convlstm', config={'type': 'convlstm', 'learning_rate': 0.0001, 'batch_size': 12, 'convlstm_filters_1': 32, 'convlstm_filters_2': 16, 'dense_units_1': 31, 'dense_units_2': 16, 'dropout_rate': 0.25, 'early_stopping_patience': 1, 'early_stopping_monitor': 'val_mae', 'early_stopping_restore_best_weights': True}
+2025-06-23 17:39:06,048 - client_process_3 - INFO - === INICIANDO CLIENTE ===
+2025-06-23 17:39:06,049 - client_process_3 - INFO - Cargando datos...
+2025-06-23 17:39:06,049 - client_process_3 - INFO - Iniciando carga para cliente 3 con dataset_type: 'pleidata'
+2025-06-23 17:39:06,112 - client_process_3 - INFO - Cliente 3: Carga y preprocesamiento completados exitosamente.
+2025-06-23 17:39:06,112 - client_process_3 - INFO - Train shapes: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:39:06,113 - client_process_3 - INFO - Test shapes:  X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:39:06,114 - client_process_3 - INFO - Datos cargados - Train: (1198, 24, 1, 21, 1), Test: (300, 24, 1, 21, 1)
+2025-06-23 17:39:06,114 - client_process_3 - INFO - Construyendo modelo...
+2025-06-23 17:39:06,394 - client_process_3 - WARNING - DEPRECATED FEATURE: flwr.client.start_numpy_client() is deprecated. 
+	Instead, use `flwr.client.start_client()` by ensuring you first call the `.to_client()` method as shown below: 
+	flwr.client.start_client(
+		server_address='<IP>:<PORT>',
+		client=FlowerClient().to_client(), # <-- where FlowerClient is of type flwr.client.NumPyClient object
+	)
+	Using `start_numpy_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+2025-06-23 17:39:06,394 - client_process_3 - WARNING - DEPRECATED FEATURE: flwr.client.start_client() is deprecated.
+	Instead, use the `flower-supernode` CLI command to start a SuperNode as shown below:
+
+		$ flower-supernode --insecure --superlink='<IP>:<PORT>'
+
+	To view all available options, run:
+
+		$ flower-supernode --help
+
+	Using `start_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+2025-06-23 17:39:06,410 - client_process_3 - DEBUG - Opened insecure gRPC connection (no certificates were passed)
+2025-06-23 17:39:06,414 - client_process_3 - DEBUG - ChannelConnectivity.IDLE
+2025-06-23 17:39:06,414 - client_process_3 - DEBUG - ChannelConnectivity.READY
+2025-06-23 17:39:06,456 - client_process_3 - INFO - 
+2025-06-23 17:39:06,456 - client_process_3 - INFO - Received: train message 8e25f550-0306-4385-9938-64bc7a8547cb
+2025-06-23 17:39:06,462 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:39:06,462 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 1
+2025-06-23 17:39:06,462 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:39:06,488 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:39:06,489 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:39:06,489 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:39:26,049 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:39:26,049 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.1059
+2025-06-23 17:39:26,065 - client_process_3 - INFO - Sent reply
+2025-06-23 17:39:31,895 - client_process_3 - INFO - 
+2025-06-23 17:39:31,895 - client_process_3 - INFO - Received: evaluate message 62510cc8-510c-47dd-a761-72420c7bf862
+2025-06-23 17:39:31,897 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:39:31,902 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:39:33,440 - client_process_3 - INFO - Evaluación completada. Loss: 0.1355, MAE: 0.3551
+2025-06-23 17:39:33,441 - client_process_3 - INFO - Sent reply
+2025-06-23 17:39:33,517 - client_process_3 - INFO - 
+2025-06-23 17:39:33,517 - client_process_3 - INFO - Received: train message 7aca8c1d-8c5f-4ceb-8d73-f4ab55c43ffd
+2025-06-23 17:39:33,519 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:39:33,519 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 2
+2025-06-23 17:39:33,519 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:39:33,524 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:39:33,524 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:39:33,524 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:39:54,037 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:39:54,038 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0517
+2025-06-23 17:39:54,044 - client_process_3 - INFO - Sent reply
+2025-06-23 17:39:54,065 - client_process_3 - INFO - 
+2025-06-23 17:39:54,065 - client_process_3 - INFO - Received: evaluate message 96ac9c0b-02f4-4b53-a6da-7b73716a938c
+2025-06-23 17:39:54,066 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:39:54,071 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:39:55,375 - client_process_3 - INFO - Evaluación completada. Loss: 0.0857, MAE: 0.2759
+2025-06-23 17:39:55,375 - client_process_3 - INFO - Sent reply
+2025-06-23 17:39:55,382 - client_process_3 - INFO - 
+2025-06-23 17:39:55,383 - client_process_3 - INFO - Received: train message 67cb2328-d4a6-4574-aa72-32600dc076f1
+2025-06-23 17:39:55,384 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:39:55,384 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 3
+2025-06-23 17:39:55,384 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:39:55,389 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:39:55,389 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:39:55,389 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:40:11,820 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:40:11,821 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0346
+2025-06-23 17:40:11,825 - client_process_3 - INFO - Sent reply
+2025-06-23 17:40:13,436 - client_process_3 - INFO - 
+2025-06-23 17:40:13,436 - client_process_3 - INFO - Received: evaluate message 8b5775cd-b77e-4c5e-8ab4-5d889bd36532
+2025-06-23 17:40:13,437 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:40:13,442 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:40:14,745 - client_process_3 - INFO - Evaluación completada. Loss: 0.0494, MAE: 0.1974
+2025-06-23 17:40:14,746 - client_process_3 - INFO - Sent reply
+2025-06-23 17:40:14,759 - client_process_3 - INFO - 
+2025-06-23 17:40:14,759 - client_process_3 - INFO - Received: train message 76f8f1f1-cc5b-4183-8d88-3c7b37fff95c
+2025-06-23 17:40:14,761 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:40:14,761 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 4
+2025-06-23 17:40:14,761 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:40:14,766 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:40:14,766 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:40:14,766 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:40:32,309 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:40:32,309 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0309
+2025-06-23 17:40:32,313 - client_process_3 - INFO - Sent reply
+2025-06-23 17:40:35,306 - client_process_3 - INFO - 
+2025-06-23 17:40:35,306 - client_process_3 - INFO - Received: evaluate message e7eada16-9628-4320-931e-19db14cb1a19
+2025-06-23 17:40:35,307 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:40:35,313 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:40:36,523 - client_process_3 - INFO - Evaluación completada. Loss: 0.0238, MAE: 0.1112
+2025-06-23 17:40:36,524 - client_process_3 - INFO - Sent reply
+2025-06-23 17:40:36,653 - client_process_3 - INFO - 
+2025-06-23 17:40:36,654 - client_process_3 - INFO - Received: train message b3274428-98ca-46c2-b1b2-48ee3d0d59b2
+2025-06-23 17:40:36,659 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:40:36,659 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 5
+2025-06-23 17:40:36,659 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:40:36,680 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:40:36,681 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:40:36,684 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:40:52,405 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:40:52,405 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0230
+2025-06-23 17:40:52,409 - client_process_3 - INFO - Sent reply
+2025-06-23 17:40:57,313 - client_process_3 - INFO - 
+2025-06-23 17:40:57,314 - client_process_3 - INFO - Received: evaluate message 453eadc5-1ce7-40d6-87cb-b13e1dd4d010
+2025-06-23 17:40:57,315 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:40:57,321 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:40:58,646 - client_process_3 - INFO - Evaluación completada. Loss: 0.0139, MAE: 0.0776
+2025-06-23 17:40:58,647 - client_process_3 - INFO - Sent reply
+2025-06-23 17:40:58,676 - client_process_3 - INFO - 
+2025-06-23 17:40:58,676 - client_process_3 - INFO - Received: train message 281c88f7-6240-4c23-b832-5c2fd4b63596
+2025-06-23 17:40:58,678 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:40:58,678 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 6
+2025-06-23 17:40:58,678 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:40:58,684 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:40:58,684 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:40:58,684 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:41:19,227 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:41:19,227 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0219
+2025-06-23 17:41:19,231 - client_process_3 - INFO - Sent reply
+2025-06-23 17:41:19,249 - client_process_3 - INFO - 
+2025-06-23 17:41:19,249 - client_process_3 - INFO - Received: evaluate message 074ad257-85aa-419e-b091-beae788a28ac
+2025-06-23 17:41:19,251 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:41:19,255 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:41:20,523 - client_process_3 - INFO - Evaluación completada. Loss: 0.0170, MAE: 0.0997
+2025-06-23 17:41:20,523 - client_process_3 - INFO - Sent reply
+2025-06-23 17:41:20,575 - client_process_3 - INFO - 
+2025-06-23 17:41:20,576 - client_process_3 - INFO - Received: train message 295f6b5c-1eeb-4d4f-80d4-9941ea4350a5
+2025-06-23 17:41:20,577 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:41:20,578 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 7
+2025-06-23 17:41:20,578 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:41:20,582 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:41:20,583 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:41:20,583 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:41:41,270 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:41:41,271 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0185
+2025-06-23 17:41:41,274 - client_process_3 - INFO - Sent reply
+2025-06-23 17:41:41,287 - client_process_3 - INFO - 
+2025-06-23 17:41:41,287 - client_process_3 - INFO - Received: evaluate message fd3ba9d2-d102-4032-8ff1-4f0c669202a0
+2025-06-23 17:41:41,289 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:41:41,294 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:41:42,565 - client_process_3 - INFO - Evaluación completada. Loss: 0.0197, MAE: 0.1104
+2025-06-23 17:41:42,565 - client_process_3 - INFO - Sent reply
+2025-06-23 17:41:42,625 - client_process_3 - INFO - 
+2025-06-23 17:41:42,626 - client_process_3 - INFO - Received: train message 43ad8d54-270d-4ab7-a91b-0869bbc6a41c
+2025-06-23 17:41:42,627 - client_process_3 - INFO - CLIENT 3: === FIT_START ===
+2025-06-23 17:41:42,627 - client_process_3 - INFO - Recibida orden de entrenamiento para la ronda 8
+2025-06-23 17:41:42,628 - client_process_3 - INFO - CLIENT 3: Estableciendo pesos del modelo global...
+2025-06-23 17:41:42,633 - client_process_3 - INFO - CLIENT 3: Pesos del modelo establecidos.
+2025-06-23 17:41:42,634 - client_process_3 - INFO - CLIENT 3: Forma de los datos de entrenamiento: X=(1198, 24, 1, 21, 1), y=(1198,)
+2025-06-23 17:41:42,634 - client_process_3 - INFO - CLIENT 3: Preparado para llamar a model.fit() con epochs=1 y batch_size=12
+2025-06-23 17:41:56,726 - client_process_3 - INFO - CLIENT 3: ¡model.fit() completado con éxito!
+2025-06-23 17:41:56,727 - client_process_3 - INFO - CLIENT 3: Entrenamiento finalizado. Loss: 0.0187
+2025-06-23 17:41:56,733 - client_process_3 - INFO - Sent reply
+2025-06-23 17:42:03,183 - client_process_3 - INFO - 
+2025-06-23 17:42:03,183 - client_process_3 - INFO - Received: evaluate message 420eac49-91e7-443d-86a8-ba62887718f1
+2025-06-23 17:42:03,184 - client_process_3 - INFO - Iniciando evaluación
+2025-06-23 17:42:03,189 - client_process_3 - INFO - Datos de prueba: X=(300, 24, 1, 21, 1), y=(300,)
+2025-06-23 17:42:04,454 - client_process_3 - INFO - Evaluación completada. Loss: 0.0221, MAE: 0.1215
+2025-06-23 17:42:04,455 - client_process_3 - INFO - Sent reply
+2025-06-23 17:42:04,505 - client_process_3 - INFO - 
+2025-06-23 17:42:04,505 - client_process_3 - INFO - Received: reconnect message 7b10d4df-6280-421e-a173-e3c30c8af38e
+2025-06-23 17:42:04,509 - client_process_3 - DEBUG - gRPC channel closed
+2025-06-23 17:42:04,509 - client_process_3 - INFO - Disconnect and shut down
+2025-06-23 17:42:04,509 - client_process_3 - INFO - Cliente finalizó su ciclo de ejecución.

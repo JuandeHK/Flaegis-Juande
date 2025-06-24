@@ -1,0 +1,23 @@
+# Documentación de estrategias
+loaders:
+  - type: python
+    search_path: ["."]
+    modules:
+      - src.server.strategy_configurators.base_strategy_configurator
+      - src.server.strategy_configurators.fedavg_strategy_configuration
+      - src.server.strategy_configurators.weighted_median_strategy_configuration
+      - src.server.strategy_configurators.fourier_strategy_configuration
+      - src.server.strategy_configurators.trimmed_mean_strategy_configuration
+
+processors:
+  - type: filter
+  - type: smart
+  - type: crossref
+
+renderer:
+  type: markdown
+  descriptive_class_title: true
+  descriptive_module_title: true
+  add_method_class_prefix: true
+  add_member_class_prefix: true
+  filename: docs/strategies_configuration_documentation.md

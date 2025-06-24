@@ -1,0 +1,12 @@
+numpy
+tensorflow
+flwr
+pandas
+scikit-learn
+matplotlib
+seaborn
+scipy
+pyts
+hdbscan
+pyyaml
+pydoc-markdown

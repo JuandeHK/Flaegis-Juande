@@ -1,0 +1,47 @@
+5 CLIENTES TRANSFORMER 10 RONDAS:
+INFO :      Run finished 10 round(s) in 20.28s
+INFO :          History (loss, distributed):
+INFO :                  round 1: 0.1758608378469944
+INFO :                  round 2: 0.08390673995018005
+INFO :                  round 3: 0.08035704717040063
+INFO :                  round 4: 0.07741692140698433
+INFO :                  round 5: 0.07405591160058975
+INFO :                  round 6: 0.07012039124965667
+INFO :                  round 7: 0.06920749023556709
+INFO :                  round 8: 0.0674737598747015
+INFO :                  round 9: 0.06469534710049629
+INFO :                  round 10: 0.06498955674469471
+INFO :          History (metrics, distributed, fit):
+INFO :          {'loss': [(1, 0.45044949650764465),
+INFO :                    (2, 0.1572852373123169),
+INFO :                    (3, 0.07932378947734833),
+INFO :                    (4, 0.07982357889413834),
+INFO :                    (5, 0.06398004814982414),
+INFO :                    (6, 0.05724720284342766),
+INFO :                    (7, 0.05754043757915497),
+INFO :                    (8, 0.054633834213018415),
+INFO :                    (9, 0.055909402668476105),
+INFO :                    (10, 0.05027172490954399)]}
+INFO :          History (metrics, distributed, evaluate):
+INFO :          {'mae': [(1, 0.32962742149829866),
+INFO :                   (2, 0.2326512113213539),
+INFO :                   (3, 0.23273455649614333),
+INFO :                   (4, 0.22668327540159225),
+INFO :                   (5, 0.21872348040342332),
+INFO :                   (6, 0.21275826841592788),
+INFO :                   (7, 0.21179669499397277),
+INFO :                   (8, 0.20857416093349457),
+INFO :                   (9, 0.20401185303926467),
+INFO :                   (10, 0.20353689789772034)]}
+
+✅ Loss distribuida - Muy buena convergencia:
+0.176 → 0.065 (mejora del 63%)
+Descenso consistente hasta ronda 9
+Ligera oscilación en ronda 10 (0.065 → 0.065)
+🟡 MAE - Buena mejora:
+0.330 → 0.204 (mejora del 38%)
+Convergencia estable desde ronda 6
+Sin degradación significativa
+✅ Velocidad:
+20.28s vs 52.95s del ConvLSTM
+2.6x más rápido

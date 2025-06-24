@@ -1,0 +1,113 @@
+2025-06-23 17:39:02,241 - Process-1 - INFO - SERVER_PROC (Process-1): Starting execution.
+2025-06-23 17:39:02,241 - Process-1 - INFO - SERVER_PROC (Process-1): Importing FederatedServer...
+2025-06-23 17:39:02,244 - Process-1 - INFO - === ARCHIVO SERVER_MANAGER.PY CARGADO ===
+2025-06-23 17:39:02,244 - Process-1 - INFO - SERVER_PROC (Process-1): Import successful.
+2025-06-23 17:39:02,244 - Process-1 - INFO - SERVER_PROC (Process-1): Creating FederatedServer instance...
+2025-06-23 17:39:02,244 - Process-1 - INFO - SERVER_PROC (Process-1): Instance created successfully.
+2025-06-23 17:39:02,244 - Process-1 - INFO - SERVER_PROC (Process-1): Signaling server_ready_event...
+2025-06-23 17:39:02,244 - Process-1 - INFO - SERVER_PROC (Process-1): Event set.
+2025-06-23 17:39:02,244 - Process-1 - INFO - SERVER_PROC (Process-1): Calling server.start() -> This is a blocking call...
+2025-06-23 17:39:02,244 - Process-1 - INFO - Server address configured to: 0.0.0.0:8080
+2025-06-23 17:39:02,244 - Process-1 - INFO - Servidor iniciando con la estrategia: 'fedavg'
+2025-06-23 17:39:02,244 - Process-1 - WARNING - DEPRECATED FEATURE: flwr.server.start_server() is deprecated.
+	Instead, use the `flower-superlink` CLI command to start a SuperLink as shown below:
+
+		$ flower-superlink --insecure
+
+	To view usage and all available options, run:
+
+		$ flower-superlink --help
+
+	Using `start_server()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+2025-06-23 17:39:02,245 - Process-1 - INFO - Starting Flower server, config: num_rounds=8, no round_timeout
+2025-06-23 17:39:02,255 - Process-1 - INFO - Flower ECE: gRPC server running (8 rounds), SSL is disabled
+2025-06-23 17:39:02,255 - Process-1 - INFO - [INIT]
+2025-06-23 17:39:02,255 - Process-1 - INFO - Requesting initial parameters from one random client
+2025-06-23 17:39:06,383 - Process-1 - INFO - Received initial parameters from one random client
+2025-06-23 17:39:06,384 - Process-1 - INFO - Starting evaluation of initial global parameters
+2025-06-23 17:39:06,384 - Process-1 - INFO - Evaluation returned no results (`None`)
+2025-06-23 17:39:06,385 - Process-1 - INFO - 
+2025-06-23 17:39:06,385 - Process-1 - INFO - [ROUND 1]
+2025-06-23 17:39:06,420 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:39:31,879 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:39:31,887 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:39:33,512 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:39:33,513 - Process-1 - INFO - 
+2025-06-23 17:39:33,513 - Process-1 - INFO - [ROUND 2]
+2025-06-23 17:39:33,513 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:39:54,049 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:39:54,057 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:39:55,377 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:39:55,377 - Process-1 - INFO - 
+2025-06-23 17:39:55,377 - Process-1 - INFO - [ROUND 3]
+2025-06-23 17:39:55,377 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:40:13,424 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:40:13,432 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:40:14,755 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:40:14,756 - Process-1 - INFO - 
+2025-06-23 17:40:14,756 - Process-1 - INFO - [ROUND 4]
+2025-06-23 17:40:14,756 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:40:35,294 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:40:35,303 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:40:36,641 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:40:36,642 - Process-1 - INFO - 
+2025-06-23 17:40:36,642 - Process-1 - INFO - [ROUND 5]
+2025-06-23 17:40:36,642 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:40:57,300 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:40:57,306 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:40:58,664 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:40:58,664 - Process-1 - INFO - 
+2025-06-23 17:40:58,665 - Process-1 - INFO - [ROUND 6]
+2025-06-23 17:40:58,665 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:41:19,234 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:41:19,241 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:41:20,569 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:41:20,569 - Process-1 - INFO - 
+2025-06-23 17:41:20,569 - Process-1 - INFO - [ROUND 7]
+2025-06-23 17:41:20,570 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:41:41,276 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:41:41,283 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:41:42,623 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:41:42,623 - Process-1 - INFO - 
+2025-06-23 17:41:42,623 - Process-1 - INFO - [ROUND 8]
+2025-06-23 17:41:42,623 - Process-1 - INFO - configure_fit: strategy sampled 5 clients (out of 5)
+2025-06-23 17:42:03,170 - Process-1 - INFO - aggregate_fit: received 5 results and 0 failures
+2025-06-23 17:42:03,176 - Process-1 - INFO - configure_evaluate: strategy sampled 5 clients (out of 5)
+2025-06-23 17:42:04,498 - Process-1 - INFO - aggregate_evaluate: received 5 results and 0 failures
+2025-06-23 17:42:04,499 - Process-1 - INFO - 
+2025-06-23 17:42:04,499 - Process-1 - INFO - [SUMMARY]
+2025-06-23 17:42:04,499 - Process-1 - INFO - Run finished 8 round(s) in 192.99s
+2025-06-23 17:42:04,499 - Process-1 - INFO - 	History (loss, distributed):
+2025-06-23 17:42:04,499 - Process-1 - INFO - 		round 1: 0.10366564318537712
+2025-06-23 17:42:04,499 - Process-1 - INFO - 		round 2: 0.07431557253003121
+2025-06-23 17:42:04,500 - Process-1 - INFO - 		round 3: 0.051667675748467444
+2025-06-23 17:42:04,500 - Process-1 - INFO - 		round 4: 0.03378000296652317
+2025-06-23 17:42:04,500 - Process-1 - INFO - 		round 5: 0.02208507787436247
+2025-06-23 17:42:04,500 - Process-1 - INFO - 		round 6: 0.016320650838315486
+2025-06-23 17:42:04,500 - Process-1 - INFO - 		round 7: 0.01479173693805933
+2025-06-23 17:42:04,500 - Process-1 - INFO - 		round 8: 0.015159446187317372
+2025-06-23 17:42:04,500 - Process-1 - INFO - 	History (metrics, distributed, fit):
+2025-06-23 17:42:04,500 - Process-1 - INFO - 	{'loss': [(1, 0.14335042277534146),
+2025-06-23 17:42:04,500 - Process-1 - INFO - 	          (2, 0.05245919393176846),
+2025-06-23 17:42:04,500 - Process-1 - INFO - 	          (3, 0.03196089988177357),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	          (4, 0.02567146274184538),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	          (5, 0.020502017768035546),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	          (6, 0.01924597082354602),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	          (7, 0.016162338248914023),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	          (8, 0.015818269271823275)]}
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	History (metrics, distributed, evaluate):
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	{'mae': [(1, 0.29073070287704467),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	         (2, 0.23492275774478913),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	         (3, 0.1834663137793541),
+2025-06-23 17:42:04,501 - Process-1 - INFO - 	         (4, 0.13827342987060548),
+2025-06-23 17:42:04,502 - Process-1 - INFO - 	         (5, 0.11078127920627594),
+2025-06-23 17:42:04,502 - Process-1 - INFO - 	         (6, 0.09519496113061905),
+2025-06-23 17:42:04,502 - Process-1 - INFO - 	         (7, 0.09068457782268524),
+2025-06-23 17:42:04,502 - Process-1 - INFO - 	         (8, 0.09390422403812408)]}
+2025-06-23 17:42:04,502 - Process-1 - INFO - 
+2025-06-23 17:42:04,509 - Process-1 - INFO - SERVER_PROC (Process-1): server.start() has finished (all rounds completed).
+2025-06-23 17:42:04,509 - Process-1 - INFO - SERVER_PROC (Process-1): Terminating.

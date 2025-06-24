@@ -1,0 +1,51 @@
+5 CLIENTES CONVLST2D 10 RONDAS:
+INFO :      Run finished 10 round(s) in 52.95s
+INFO :          History (loss, distributed):
+INFO :                  round 1: 0.12364566624164582
+INFO :                  round 2: 0.11261367239058018
+INFO :                  round 3: 0.1038860240019858
+INFO :                  round 4: 0.09720760071650147
+INFO :                  round 5: 0.09110857509076595
+INFO :                  round 6: 0.08495554542168975
+INFO :                  round 7: 0.08135929014533758
+INFO :                  round 8: 0.07934878040105105
+INFO :                  round 9: 0.07704786844551563
+INFO :                  round 10: 0.07248401865363122
+INFO :          History (metrics, distributed, fit):
+INFO :          {'loss': [(1, 1.6013729333877564),
+INFO :                    (2, 0.16824365258216858),
+INFO :                    (3, 0.13744258284568786),
+INFO :                    (4, 0.0965432345867157),
+INFO :                    (5, 0.07013230621814728),
+INFO :                    (6, 0.05665958747267723),
+INFO :                    (7, 0.05821666494011879),
+INFO :                    (8, 0.04101197086274624),
+INFO :                    (9, 0.04267762526869774),
+INFO :                    (10, 0.0379656158387661)]}
+INFO :          History (metrics, distributed, evaluate):
+INFO :          {'mae': [(1, 0.27094553858041764),
+INFO :                   (2, 0.25405889078974725),
+INFO :                   (3, 0.24087304025888442),
+INFO :                   (4, 0.23001955151557923),
+INFO :                   (5, 0.22080341577529908),
+INFO :                   (6, 0.21168892383575438),
+INFO :                   (7, 0.20605617612600327),
+INFO :                   (8, 0.20266840606927872),
+INFO :                   (9, 0.19875878244638442),
+INFO :                   (10, 0.19314135909080504)]}
+
+
+Análisis de las métricas:
+✅ Loss distribuida - Convergencia PERFECTA:
+0.124 → 0.072 (mejora del 42%)
+Descenso constante en todas las rondas
+Sin plateau ni oscilaciones
+🟢 MAE - IMPRESIONANTE:
+0.271 → 0.193 (mejora del 29%)
+Mejora consistente ronda tras ronda
+Tendencia descendente perfecta
+✅ Loss de entrenamiento - Saludable:
+1.60 → 0.038 (convergencia muy limpia)
+Sin overfitting (alineado con distribuida)
+
+

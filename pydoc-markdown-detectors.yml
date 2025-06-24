@@ -1,0 +1,24 @@
+# Documentación de detectores
+loaders:
+  - type: python
+    search_path: ["."]
+    modules:
+      - src.detectors.base_clustering_detector
+      - src.detectors.clustering_strategy
+      - src.detectors.clustering_context
+      - src.detectors.spectral_detector
+      - src.detectors.hierarchical_detector
+      - src.detectors.sign_guard_detector
+
+processors:
+  - type: filter
+  - type: smart
+  - type: crossref
+
+renderer:
+  type: markdown
+  descriptive_class_title: true
+  descriptive_module_title: true
+  add_method_class_prefix: true
+  add_member_class_prefix: true
+  filename: docs/detectors_documentation.md
